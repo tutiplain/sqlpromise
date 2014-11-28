@@ -1,0 +1,9 @@
+{
+  "user":"adminchat@dqjwagvlb0",
+  "password":"Chat123!",
+  "server":"dqjwagvlb0.database.windows.net",
+  "database":"prorankedchat_db",
+  "options": {
+    "encrypt":true
+  }
+}

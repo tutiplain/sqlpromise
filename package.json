@@ -1,0 +1,15 @@
+{
+  "name": "sqlpromise",
+  "version": "0.0.1",
+  "description": "A SQL Promises library for Azure SQL ",
+  "main": "sqlpromise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tutiplain",
+  "license": "ISC",
+  "dependencies": {
+    "mssql": "^1.3.0",
+    "q": "^1.1.1"
+  }
+}

@@ -23,6 +23,8 @@ This function will resolve with Q promise.  doInputProcedure() will resolve with
 
 **{Option}** - takes the following Propeties
 
+** StoreProcedure = Name of the storeprocedure as a String
+
 __Example__
 
 ```javascript
@@ -35,41 +37,25 @@ __Example__
 ```
 
 
-### connect([callback])
-
-Create connection to the server.
-
-__Arguments__
-
-- **callback(err)** - A callback which is called after connection has established, or an error has occurred. Optional.
-
-
 ## Quick Example
 
 ```javascript
 
-var sql = require('mssql');
-
-var config = {
-    user: '...',
-    password: '...',
-    server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
-    database: '...',
-
-    options: {
-        encrypt: true // Use this if you're on Windows Azure
-    }
-}
-
-```
-
 var sqlpromise = require('sqlpromise');
 
-sqlpromise.doQuery('select *  from users').then (
+var Option = {
+               "Param" : "@username", //without the @
+               "Type"  : sql.VarChar(), //see the mssql documentation for types
+               "Value" : "xenlias" //value of the query
+             }
+
+sqlpromise.doInputProcedure(Option, 'getUsers').then (
   function (records) {
     //your logic here
   }
 );
+
+```
 
 
 doUpdateQuery()

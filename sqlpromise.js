@@ -46,6 +46,32 @@ exports.doQuery = function (query)
   return defer.promise;
 };
 
+exports.doInputProcedure = function (Option, StoreProcedure)
+{
+  console.log("fetching store procedure...");
+  var defer = Q.defer();
+  var sql = require('mssql');
+  getConfig().then(function(config){
+    var con = new sql.Connection(config, function conDB(err){
+      console.log(err);
+      var req = new sql.Request(con);
+      req.input(Option.Param, Option.Type, Option.Value);
+      req.execute('StoreProcedure', function(err, recordsets, returnValue){
+        if (err) {
+          console.log(err);
+          defer.reject('Query failed:' + err);
+          con.close();
+          return defer.promise;
+        }
+        storeProcedure = JSON.stringify(recordsets);
+        console.dir("StoreProcedure is: "+storeProcedure);
+        defer.resolve(storeProcedure);
+        con.close();
+      });
+    })
+  });
+};
+
 
 exports.doUpdateQuery = function (query)
 {

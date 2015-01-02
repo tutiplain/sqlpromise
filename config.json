@@ -1,9 +1,10 @@
 {
-  "user":"youruser@yourserver",
-  "password":"yourpassword",
-  "server":"yourserver.database.windows.net",
-  "database":"your_db",
-  "options": {
-    "encrypt":true
+  user: 'xenlias@t644trtbrf.database.windows.net',
+  password: 'Enterhome1',
+  server: 't644trtbrf.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
+  database: 'My-Api',
+
+  options: {
+    encrypt: true // Use this if you're on Windows Azure
   }
 }

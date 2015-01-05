@@ -15,7 +15,19 @@ First, edit the locally included config.json file to your sql server settings. T
 
 Now you have three functions:
 
-doQuery()
+### doQuery(query)
+
+This function returns a promise for an array of objects containing the results of the query.
+
+## Example
+```javascript
+sqlpromise = require('sqlpromise');
+sqlpromise.doQuery('select * from users').then (function (results) {
+    console.log (results[0].username);
+});
+
+```
+
 
 ### doInputProcedure({Option}, StoreProcedure)
 
@@ -37,7 +49,7 @@ __Example__
 ```
 
 
-## Quick Example
+## Example
 
 ```javascript
 
@@ -58,19 +70,11 @@ sqlpromise.doInputProcedure(Option, 'getUsers').then (
 ```
 
 
-doUpdateQuery()
+### doUpdateQuery(query)
 
-This function will resolve with Q promise.  doQuery() will resolve with an array of records, like so:
+This function will return a Q promise. 
 
-var sqlpromise = require('sqlpromise');
-
-sqlpromise.doQuery('select *  from users').then (
-  function (records) {
-    //your logic here
-  }
-);
-
-doUpdateQuery() works the same, but the promise resolves with the string "success" or a rejection reason. This is to use when doing UPDATEs or DELETEs or INSERTs.
+doUpdateQuery() works the same as doQuery, but the returned promise resolves with the string "success" or a rejection reason. Use this function for queries that do UPDATEs, INSERTs and DELETEs.
 
 Enjoy!
 

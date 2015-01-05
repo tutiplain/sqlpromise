@@ -29,13 +29,13 @@ sqlpromise.doQuery('select * from users').then (function (results) {
 ```
 
 
-### doInputProcedure({Option}, StoreProcedure)
+### doInputProcedure(Option, StoreProcedure)
 
 This function will resolve with Q promise.  doInputProcedure() will resolve with an array of JSON records.
 
-**{Option}** - takes the following Propeties
+**Option** - an object with properties to describe the Stored Procedure to call (see example below).
 
-** StoreProcedure = Name of the storeprocedure as a String
+** StoreProcedure = Name of the stored procedure as a String
 
 __Example__
 
